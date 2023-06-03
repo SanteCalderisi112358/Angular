@@ -1,0 +1,24 @@
+<header>
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          [routerLink]="['todo']"
+          routerLinkActive="active"
+          aria-current="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Todo</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['completati']"
+          routerLinkActive="active"
+          >Completati</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

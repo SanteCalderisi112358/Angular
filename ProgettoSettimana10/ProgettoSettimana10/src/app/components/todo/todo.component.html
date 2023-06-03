@@ -1,0 +1,23 @@
+<main>
+  <div *ngIf="opacity" class="spinner-border me-3 text-info" role="status"></div>
+   <div *ngIf="!opacity" class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+      <p>{{noTaskString}}</p>
+
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="newTodoTitle" placeholder="Cosa devi fare?"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="recuperaTodo()">➕</button>
+      </div>
+      <ul>
+        <li *ngFor="let todo of todoArray">
+          <div class="d-flex align-items-center justify-content-between">
+            <span>{{ todo.title.toUpperCase() }}</span>
+            <a class="btn" (click)="aggiornaTodo(todo)">✅</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>

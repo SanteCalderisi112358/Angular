@@ -1,0 +1,21 @@
+<div class="container">
+<a class="btn btn-primary" [routerLink]="['/active-posts']" routerLinkActive="active" ><i class="me-2 bi bi-arrow-left-circle-fill"></i>Post Attivi</a>
+<h1 class="text-center">Post Inattivi</h1>
+<div class="d-flex justify-content-center mt-5">
+  <div *ngFor="let elements of datiPost">
+  <div
+    *ngIf="!elements.active"
+    class="card text-bg-light mb-3 ms-2"
+    style="max-width: 18rem"
+  >
+    <div class="card-header">Post</div>
+    <div class="card-body">
+      <h5 class="card-title">{{ elements.title }}</h5>
+      <p class="card-text">{{ elements.body }}</p>
+      <p>Id post: {{ elements.id }}</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

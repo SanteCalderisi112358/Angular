@@ -1,0 +1,26 @@
+<main>
+  <div
+    [ngStyle]="{ opacity: opacity ? '1' : '0' }"
+    class="d-flex justify-content-center"
+  >
+    <div class="spinner-border text-info me-4" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="text-center">
+      <p>Recupero Tasks...</p>
+    </div>
+  </div>
+  <div [ngStyle]="{ opacity: opacity ? '0' : '1' }">
+    <div class="container d-flex justify-content-center">
+      <table class="table table-success table-striped w-50 border border-info">
+        <tbody>
+          <tr *ngFor="let todo of todoArrayCompleted">
+            <th scope="row" *ngIf="todo !== undefined" class="text-center">
+              {{ todo.title.toUpperCase() }}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
