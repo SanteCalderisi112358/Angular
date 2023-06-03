@@ -19,8 +19,7 @@ export class CompletatiComponent implements OnInit {
     }, 2000);
 
     this.todoArrayCompleted = this.todos.aggiornaTodo(this.todo_singolo);
-    console.log(typeof this.todo_singolo);
-    console.log(this.todoArrayCompleted);
+
   }
 
 }
