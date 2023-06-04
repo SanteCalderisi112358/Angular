@@ -25,12 +25,7 @@ export class TodoComponent implements OnInit {
       this.opacity = !this.opacity;
     }, 2000)
     this.newTodoTitle = '';
-    const todo_LocalStorage = localStorage.getItem('TodoArray');
-
-    if (todo_LocalStorage) {
-      this.todoArray = JSON.parse(todo_LocalStorage);
-    }
-
+    this.todoArray = this.todos.getTodoArray()
     if (this.todoArray.length > 0) {
       this.index = this.todoArray[this.todoArray.length - 1].id + 1;
     } else {

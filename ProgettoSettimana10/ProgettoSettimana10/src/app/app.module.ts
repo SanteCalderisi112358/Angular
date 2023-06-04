@@ -13,14 +13,18 @@ import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/todo',
+    pathMatch: 'full'
+  },
+  {
     path: 'todo',
     component: TodoComponent
   },
   {
     path: 'completati',
     component: CompletatiComponent
-  },
-
+  }
 ];
 
 @NgModule({

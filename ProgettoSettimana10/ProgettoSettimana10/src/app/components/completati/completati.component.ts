@@ -18,6 +18,7 @@ export class CompletatiComponent implements OnInit {
       this.opacity = !this.opacity;
     }, 2000);
 
+
     this.todoArrayCompleted = this.todos.aggiornaTodo(this.todo_singolo);
 
   }
