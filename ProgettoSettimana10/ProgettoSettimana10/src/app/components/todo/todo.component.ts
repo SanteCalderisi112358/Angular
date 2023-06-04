@@ -62,6 +62,7 @@ export class TodoComponent implements OnInit {
 
     setTimeout(() => {
 
+
       todo.completed = true;
       const index2 = this.todoArray.indexOf(todo);
       this.todoArrayCompleted=this.todos.aggiornaTodo(todo);

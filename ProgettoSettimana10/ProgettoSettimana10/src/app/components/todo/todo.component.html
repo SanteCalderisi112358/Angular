@@ -1,5 +1,11 @@
 <main>
-  <div *ngIf="opacity" class="spinner-border me-3 text-info" role="status"></div>
+
+  <div *ngIf="opacity" class="spinner">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
    <div *ngIf="!opacity" class="d-flex justify-content-center">
     <div class="d-flex flex-column">
       <p>{{noTaskString}}</p>
