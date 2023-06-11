@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.interface';
 import { User } from 'src/app/models/user.interface';
@@ -8,22 +8,22 @@ import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
   user!: User;
-  cart: number[] = []
+  cart: number[] = [];
 
-  sub!: Subscription
-  movies!: Movie[]
+  sub!: Subscription;
+  movies!: Movie[];
 
-  constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
+  constructor(private movieSrv: MoviesService, private authSrv: AuthService) {}
 
   ngOnInit(): void {
     this.sub = this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
       this.movies = movies;
-      console.log(this.movies)
-      console.log(this.user.id)
+      console.log(this.movies);
+      console.log(this.user.id);
     });
 
     this.user = this.authSrv.recuperoUserDati();
@@ -43,16 +43,27 @@ export class MoviesComponent implements OnInit {
     }
   }
 
-  addToCart(movieId: number,): void {
-    this.cart.push(movieId);
-    console.log(movieId)
+  addToCart(movieId: number): void {
+    if (this.user.id) {
+      const favMovie = { movieId: movieId, userId: this.user.id };
+      this.cart.push(movieId);
+      console.log(movieId);
+      console.log(this.cart)
+      console.log(this.cart.indexOf(movieId)+1)
+      this.authSrv.favourite(favMovie).subscribe();
+    }
   }
 
   removeFromCart(movieId: number): void {
-    const index = this.cart.indexOf(movieId);
+    if(this.user.id){
+      const index = this.cart.indexOf(movieId);
     if (index > -1) {
       this.cart.splice(index, 1);
-      console.log(movieId)
+      console.log(movieId);
+      console.log(this.cart.indexOf(movieId)+1)
     }
+    this.authSrv.remove(this.cart.indexOf(movieId)+2).subscribe()
+    }
+
   }
 }

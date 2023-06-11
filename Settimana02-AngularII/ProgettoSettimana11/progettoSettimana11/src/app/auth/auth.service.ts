@@ -32,14 +32,7 @@ export class AuthService {
         console.log(this.utente)
         localStorage.setItem('user', JSON.stringify(data))
         this.autologout(data)
-        // this.user = {
-        //   nome: data.user.nome,
-        //   cognome: data.user.cognome,
-        //   email: data.user.email,
-        //   password: data.user.password
 
-
-        // }
 
       })
     );
@@ -62,6 +55,15 @@ export class AuthService {
 
   signup(data:{nome:string; cognome:string; email:string; password:string}){
     return this.http.post(`${this.baseUrl}register`, data)
+  }
+
+  favourite(favMovie: { movieId: number, userId: number }) {
+    return this.http.post(`${this.baseUrl}favorites`, favMovie);
+  }
+
+
+  remove(id:number){
+    return this.http.delete(`${this.baseUrl}favorites/${id}`)
   }
 
   logout(){
