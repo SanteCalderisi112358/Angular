@@ -1,53 +1,18 @@
 {
   "users": [
     {
-      "email": "pasta@andrea.it",
-      "password": "$2a$10$Y4vpXEUEugdCIVsLAXUTmO8FwAn6WjHEXrDfLd0IPaJBhslQ/5LRW",
-      "nome": "Andrea",
-      "cognome": "Pastaasciutta",
+      "email": "santecalderisi@gmail.com",
+      "password": "$2a$10$bg5n35m9uo7/LO6jrOiJlet4ynCQ8HM5ZbCQx2euBci7F4zbjtNVa",
+      "nome": "Sante",
+      "cognome": "Calderisi",
       "id": 1
     },
     {
-      "email": "sante@c.it",
-      "password": "$2a$10$ZGHeT9ox.C9BYQcJo4/J4.1uoWJkgJWtWXIuwXeiyLXtGgQpm.i.e",
-      "nome": "Sante",
-      "cognome": "calderiis",
+      "email": "marco@umberti.it",
+      "password": "$2a$10$FK9c3YNt2xahSAoOQzW/5ek6U62Lz/3f9pfefSIttbWcxuwkNQna.",
+      "nome": "marco",
+      "cognome": "umberti",
       "id": 2
-    },
-    {
-      "email": "erik@martini.it",
-      "password": "$2a$10$L/v/Ox2p9tsaMMNpYlaX3.e98sp3OuZX5t206JQys0Ts2gQB7cLRC",
-      "nome": "Erik",
-      "cognome": "Martini",
-      "id": 3
-    },
-    {
-      "email": "gaetano@ciao.it",
-      "password": "$2a$10$uVepAxewhZ80C01qaERiKOZJy.FM4Ta4.zWrLGufjTGwnfe7pAPFu",
-      "nome": "Gaetano",
-      "cognome": "Notarangelo",
-      "id": 4
-    },
-    {
-      "email": "sante@calderisi.it",
-      "password": "$2a$10$b5TgJacYEPmBx3UaHQoQruiBRkfHpyqvu1vixKHdojbSZeaFVGLUe",
-      "nome": "Sante",
-      "cognome": "Calderisi",
-      "id": 5
-    },
-    {
-      "email": "dadegi@hotmail.it",
-      "password": "$2a$10$Kf.KGhkoDSGWmhd.Yv0quuB8aY2iDBppckweHWLdPBPT/Btg76mfS",
-      "nome": "Dario",
-      "cognome": "Del Giudice",
-      "id": 6
-    },
-    {
-      "email": "dadegi@homail.it",
-      "password": "$2a$10$sIpC3m4sJrWyk7tkESKu8.8nvaLcohVXnnaqkU2/FY1c2V2G.NLu6",
-      "nome": "Dario",
-      "cognome": "Del Giudice",
-      "id": 7
     }
   ],
   "favorites": [

@@ -15,7 +15,7 @@ import { User } from '../models/user.interface';
 export class AuthService {
   jwtHelper = new JwtHelperService();
   baseUrl = environment.baseUrl;
-  user!:User
+  userProfile!:User
   private authSubj = new BehaviorSubject<null | AuthData>(null);
   utente!: AuthData;
   user$ = this.authSubj.asObservable();
@@ -32,14 +32,14 @@ export class AuthService {
         console.log(this.utente)
         localStorage.setItem('user', JSON.stringify(data))
         this.autologout(data)
-        this.user = {
-          nome: data.user.nome,
-          cognome: data.user.cognome,
-          email: data.user.email,
-          password: data.user.password
+        // this.user = {
+        //   nome: data.user.nome,
+        //   cognome: data.user.cognome,
+        //   email: data.user.email,
+        //   password: data.user.password
 
 
-        }
+        // }
 
       })
     );
@@ -57,6 +57,7 @@ export class AuthService {
     }
     this.authSubj.next(userData)
     this.autologout(userData)
+    this.userProfile = userData.user
   }
 
   signup(data:{nome:string; cognome:string; email:string; password:string}){
@@ -81,7 +82,10 @@ export class AuthService {
 
   recuperoUserDati():User{
 
+    return this.userProfile
 
-    return this.user
+
   }
+
+
 }

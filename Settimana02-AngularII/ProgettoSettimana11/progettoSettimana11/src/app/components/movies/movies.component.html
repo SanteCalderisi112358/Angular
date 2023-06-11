@@ -1,7 +1,7 @@
 <main>
   <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container">
-    <div *ngFor="let movie of movies">
+    <div *ngFor="let movie of movies, let i = index">
       <div class="card m-2" style="width: 200px">
         <img class="rounded" type="button" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path"
           class="card-img-top" [alt]="movie.title" />
@@ -10,8 +10,11 @@
             {{ movie.title }}
           </h3>
 
-          <a href="#" class="btn btn-primary" (click)="addToFavorites(movie.id)">
-            <i class="fa fa-heart"></i>
+          <a *ngIf="!isMovieInCart(movie.id)"  class="btn btn-primary" (click)="addToCart(movie.id)">
+            Guarda più tardi
+          </a>
+          <a *ngIf="isMovieInCart(movie.id)" class="btn btn-primary" (click)="removeFromCart(movie.id)">
+            Aggiunto al catalogo
           </a>
         </div>
       </div>

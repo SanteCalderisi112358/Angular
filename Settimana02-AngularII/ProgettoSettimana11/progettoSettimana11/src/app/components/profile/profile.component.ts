@@ -13,9 +13,13 @@ export class ProfileComponent implements OnInit {
 
   constructor(private authSrv: AuthService) {}
 
-  ngOnInit(): void {
-    this.user = this.authSrv.recuperoUserDati();
-    console.log(this.user);
+  ngOnInit() {
+
+
+     this.user = this.authSrv.recuperoUserDati();
+     console.log(this.user);
+
+
   }
 
   generateRandomDate(): Date {
