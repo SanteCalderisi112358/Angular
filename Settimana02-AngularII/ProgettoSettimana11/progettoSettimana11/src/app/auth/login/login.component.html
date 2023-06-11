@@ -1,0 +1,23 @@
+<main>
+  <div class="container">
+    <h1 class="text-center">Sei proprio tu John Wayne?</h1>
+    <form #form="ngForm" (ngSubmit)="accedi(form)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" required ngModel />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" required ngModel />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Accedi
+      </button>
+    </form>
+    <p class="text-center">Vuoi far parte della ciurma?</p>
+    <p class="text-center">
+      <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active"
+        style="text-decoration: underline">Clicca qui!</a>
+    </p>
+  </div>
+</main>

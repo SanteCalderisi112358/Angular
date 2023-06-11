@@ -1,0 +1,22 @@
+<main>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="card mb-3" style="max-width: 540px">
+      <div class="row g-0">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.nome.charAt(0).toUpperCase() + user.nome.slice(1).toLowerCase() }} {{ user.cognome.charAt(0).toUpperCase() + user.cognome.slice(1).toLowerCase() }}</h5>
+
+            <p class="card-text">
+              <small style="color: aliceblue"
+                >Pirata dal
+                {{ generateRandomDate() | date : "dd/MM/yyyy" }}</small
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

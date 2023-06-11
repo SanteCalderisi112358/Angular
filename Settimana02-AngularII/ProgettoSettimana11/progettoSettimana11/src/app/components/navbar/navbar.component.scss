@@ -1,0 +1,47 @@
+#logo {
+  font-family: "Arial", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #1A98FF;
+  letter-spacing: 2px;
+
+}
+
+#user{
+  h3{
+    color: white;
+    margin-bottom: 0;
+  }
+  div{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    position: relative;
+    p{
+      margin: 0;
+      font-weight: 900;
+      font-size: 15px;
+    }
+    span{
+      width: 10px;
+      height: 10px;
+      background-color: green;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+nav{
+  background-color: #00050D;
+  a{
+    color: #BABCBE;
+  }
+  .bi:hover{
+    color: #1A98FF;
+  }
+}
+
+.navbar-nav .nav-link.active{
+  color: #FFFFFF
+}

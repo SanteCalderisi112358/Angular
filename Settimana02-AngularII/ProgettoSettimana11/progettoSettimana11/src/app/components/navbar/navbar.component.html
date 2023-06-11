@@ -1,0 +1,57 @@
+<header class="container">
+  <div class="d-flex justify-content-center">
+    <nav class="navbar navbar-expand-lg fixed-top mx-5 mt-3 rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand" id="logo">epic video</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end me-0" id="navbarSupportedContent">
+          <ul class="navbar-nav me-0 mb-2 mb-lg-0 align-items-center">
+            <div class="d-flex align-items-center me-3">
+              <div class="dropdown">
+                <a type="button">
+                  <div id="user" *ngIf="user" class="d-flex align-items-center">
+                    <h3 class="me-2">
+                      Felice di riaverti a bordo, {{ user.user.nome }}
+                    </h3>
+                    <div class="rounded-circle d-flex justify-content-center align-items-center">
+                      <span class="rounded-circle"></span>
+                      <p>{{ user.user.nome[0].toUpperCase() }}{{ user.user.cognome[0].toUpperCase() }}</p>
+                    </div>
+                  </div>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item nav-link"  [routerLink]="['/profile']"
+                      routerLinkActive="active">Profilo</a></li>
+                  <li><a class="dropdown-item nav-link" type="button">Logout<a type="button" (click)="logout()"><i class="bi bi-box-arrow-right"></i></a></a></li>
+
+                </ul>
+              </div>
+
+              <li class="nav-item" *ngIf="user">
+                <a class="nav-link" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Movies</a>
+              </li>
+              <li class="nav-item" *ngIf="user">
+                <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active">Profilo</a>
+              </li>
+              <li class="nav-item" *ngIf="!user">
+                <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active"></a>
+              </li>
+              <li class="nav-item" *ngIf="!user">
+                <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"></a>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item" *ngIf="user">
+                <a type="button" (click)="logout()"><i class="bi bi-box-arrow-right"></i></a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
