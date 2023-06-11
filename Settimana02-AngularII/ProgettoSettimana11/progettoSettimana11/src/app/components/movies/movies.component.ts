@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Subscription} from 'rxjs'
 import { Movie } from 'src/app/models/movie.interface';
 import { MoviesService } from 'src/app/services/movies.service';

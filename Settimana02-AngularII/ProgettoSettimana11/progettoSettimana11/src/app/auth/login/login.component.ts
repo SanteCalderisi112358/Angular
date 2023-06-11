@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
           console.error(error.error);
           if (error.error === 'Incorrect password') {
             alert('Occhio, pirata! Hai sbagliato password!');
+          }else if(error.error === 'Cannot find user'){
+            alert('Registrati!')
           }
           this.isLoading = false;
         }
