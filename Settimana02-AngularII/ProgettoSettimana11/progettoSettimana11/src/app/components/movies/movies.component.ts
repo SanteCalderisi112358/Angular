@@ -23,16 +23,10 @@ export class MoviesComponent implements OnInit {
     this.sub = this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
       this.movies = movies;
       console.log(this.movies);
-      console.log(this.user.id);
+
     });
 
     this.user = this.authSrv.recuperoUserDati();
-  }
-
-  isMovieInCart(movieId: number): boolean {
-    const inCart = this.cart.includes(movieId);
-
-    return inCart;
   }
 
   toggleCart(movieId: number): void {
@@ -43,16 +37,34 @@ export class MoviesComponent implements OnInit {
     }
   }
 
+  isMovieInCart(movieId: number): boolean {
+    const inCart = this.cart.includes(movieId);
+
+    return inCart;
+  }
+
+
+
   addToCart(movieId: number): void {
     if (this.user.id) {
       const favMovie = { movieId: movieId, userId: this.user.id };
       this.cart.push(movieId);
       console.log(movieId);
-      console.log(this.cart)
-      console.log(this.cart.indexOf(movieId)+1)
-      this.authSrv.favourite(favMovie).subscribe();
+      this.authSrv.favourite(favMovie).subscribe(
+        response => {
+
+          console.log('Film aggiunto ai preferiti', response);
+        },
+        error => {
+
+          console.error('Errore durante l\'aggiunta del film ai preferiti', error);
+        }
+      );
+    } else {
+      console.error('Pirata non definito!');
     }
   }
+
 
   removeFromCart(movieId: number): void {
     if(this.user.id){

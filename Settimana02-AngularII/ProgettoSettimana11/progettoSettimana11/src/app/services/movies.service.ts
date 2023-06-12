@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/movie.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })

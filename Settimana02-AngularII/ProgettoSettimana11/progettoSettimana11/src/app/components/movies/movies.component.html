@@ -10,11 +10,11 @@
             {{ movie.title }}
           </h3>
 
-          <a *ngIf="!isMovieInCart(movie.id)"  class="btn btn-primary" (click)="addToCart(movie.id)">
-            Guarda più tardi
+          <a *ngIf="!isMovieInCart(movie.id)"  class="btn btn-primary rounded-circle" (click)="addToCart(movie.id)" title="Aggiungi alla Lista">
+            <i class="bi bi-plus-circle"></i>
           </a>
-          <a *ngIf="isMovieInCart(movie.id)" class="btn btn-primary" (click)="removeFromCart(movie.id)">
-            Aggiunto al catalogo
+          <a *ngIf="isMovieInCart(movie.id)" class="btn btn-primary rounded-circle" (click)="removeFromCart(movie.id)" title="Rimuovi dalla Lista">
+            <i class="bi bi-x-circle"></i>
           </a>
         </div>
       </div>

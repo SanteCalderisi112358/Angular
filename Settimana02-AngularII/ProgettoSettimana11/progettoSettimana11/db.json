@@ -2,35 +2,50 @@
   "users": [
     {
       "email": "santecalderisi@gmail.com",
-      "password": "$2a$10$bg5n35m9uo7/LO6jrOiJlet4ynCQ8HM5ZbCQx2euBci7F4zbjtNVa",
+      "password": "$2a$10$Iw.qUOqQpqT3go38fm06Ren8vbB5wUeJClg36ESxGF0/Ex1C0ryju",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
     },
     {
-      "email": "marco@umberti.it",
-      "password": "$2a$10$FK9c3YNt2xahSAoOQzW/5ek6U62Lz/3f9pfefSIttbWcxuwkNQna.",
-      "nome": "marco",
-      "cognome": "umberti",
+      "email": "luca@gentili.it",
+      "password": "$2a$10$THv4aekEX/MEZwnKBApAEu2hqGEpBPsIL9Yw8mBO2I1wQUxSrKVYC",
+      "nome": "Luca",
+      "cognome": "gentili",
       "id": 2
-    },
-    {
-      "email": "eee@sss.eee",
-      "password": "$2a$10$/.w6XuBxnL1flxY.afBryOqtVBw1NSfgefTAkwhFTP5/BXiy61XOC",
-      "nome": "eee",
-      "cognome": "eee",
-      "id": 3
-    },
-    {
-      "email": "sante@cal.it",
-      "password": "$2a$10$ZUEO5wF.YZYzN3/3fN6Rb.QzjdriEgyC897SqHAdeOCoBSvGN6W5W",
-      "nome": "sante",
-      "cognome": "cal",
-      "id": 4
     }
   ],
   "favorites": [
-
+    {
+      "movieId": 578701,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "movieId": 578701,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "movieId": 578701,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "movieId": 632357,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "movieId": 632357,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "movieId": 632357,
+      "userId": 2,
+      "id": 7
+    }
   ],
   "genres": [
     {
