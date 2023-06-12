@@ -5,23 +5,27 @@ import { Movie } from '../models/movie.interface';
 import { Favorites } from '../models/favorites.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MoviesService {
+  baseUrl = environment.baseUrl;
+  constructor(private http: HttpClient) {}
 
-    baseUrl =environment.baseUrl;
-  constructor(private http:HttpClient) { }
+  removeFavoriteFromFavorites(id: number) {
+    return this.http.delete(`${this.baseUrl}favorites/${id}`);
+  }
 
-getMovies(){
-  return this.http.get<Movie[]>(`${this.baseUrl}movies-popular`);
+  getAllMovies() {
+    return this.http.get<Movie[]>(`${this.baseUrl}movies-popular`);
+  }
+
+  getFavoritesByUserId(userId: number) {
+    return this.http.get<Favorites[]>(
+      `${this.baseUrl}favorites?userId=${userId}`
+    );
+  }
+
+  addFavouriteToFavorites(favMovie: Favorites) {
+    return this.http.post(`${this.baseUrl}favorites`, favMovie);
+  }
 }
-
-getFavorites(userId: number) {
-  return this.http.get<Favorites[]>(`${this.baseUrl}favorites?userId=${userId}`);
-}
-
-favourite(favMovie: Favorites) {
-  return this.http.post(`${this.baseUrl}favorites`, favMovie);
-}
-}
-

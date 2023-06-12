@@ -68,9 +68,9 @@ export class AuthService {
   //   return this.http.get<Favorites[]>(`${this.baseUrl}favorites?userId=${userId}`);
   // }
 
-  remove(id:number) {
-    return this.http.delete(`${this.baseUrl}favorites/${id}`);
-  }
+  // remove(id:number) {
+  //   return this.http.delete(`${this.baseUrl}favorites/${id}`);
+  // }
 
   logout() {
     this.authSubj.next(null);

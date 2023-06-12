@@ -2,10 +2,10 @@
   "users": [
     {
       "email": "santecalderisi@gmail.com",
-      "password": "$2a$10$Rc5hB.LBoBGm9TGm6YSnCOWTPlaO2gWhpkKfZ.kZe3V6fG2hHNl8C",
+      "password": "$2a$10$tXhZL8Cmh1sZQmRdinU/sOPC2RrHOAgJceCTRMGvAxHJDJEsqY886",
       "nome": "Sante",
       "cognome": "Calderisi",
-      "id": 1
+      "id": 2
     }
   ],
   "favorites": [
@@ -18,6 +18,16 @@
       "movieId": 578701,
       "userId": 1,
       "id": 2
+    },
+    {
+      "movieId": 567189,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "movieId": 460465,
+      "userId": 1,
+      "id": 4
     }
   ],
   "genres": [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.interface';
 import { User } from 'src/app/models/user.interface';
@@ -13,83 +13,74 @@ import { Favorites } from 'src/app/models/favorites.interface';
 })
 export class MoviesComponent implements OnInit {
   user!: User;
-  cart: number[] = [];
+  listFavorite: number[] = [];
   favMovie!: Favorites;
   subMovies!: Subscription;
   subFavorites!: Subscription;
+
   movies!: Movie[];
-  favorites!:Favorites[]
-  constructor(private movieSrv: MoviesService, private authSrv: AuthService) {}
+  favorites!: Favorites[];
+
+  constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 
   ngOnInit(): void {
-    this.subMovies = this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
+    this.subMovies = this.movieSrv.getAllMovies().subscribe((movies: Movie[]) => {
       this.movies = movies;
       console.log(this.movies);
     });
 
     this.user = this.authSrv.recuperoUserDati();
-    if (this.user.id) {
+    if (this.user && this.user.id) {
       console.log(this.user.id);
-    this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
-      this.favorites = favorites
-      console.log(favorites);
-        });
+      this.loadFavorites();
     }
   }
 
-  isMovieInCart(movieId: number): boolean {
-    const inCart = this.cart.includes(movieId);
-
-    return inCart;
+  isMovieInlistFavorite(movieId: number): boolean {
+    return this.listFavorite.includes(movieId);
   }
 
-  addToCart(movieId: number): void {
-
-    this.user = this.authSrv.recuperoUserDati();
-
-    if (this.user.id) {
+  addTolistFavorite(movieId: number): void {
+    if (this.user && this.user.id) {
       this.favMovie = { movieId: movieId, userId: this.user.id };
-      this.cart.push(movieId);
+      this.listFavorite.push(movieId);
       console.log(movieId);
-      this.movieSrv.favourite(this.favMovie).subscribe(
-        (response) => {
+      this.movieSrv
+        .addFavouriteToFavorites(this.favMovie)
+        .subscribe((response) => {
           console.log('Film aggiunto ai preferiti', response);
-        }
-      )
-      this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
-      this.favorites = favorites
-      console.log(favorites);
+          this.loadFavorites();
         });
     }
-
   }
 
-  removeFromCart(movieId: number): void {
-    if (this.user.id) {
-      const index = this.cart.indexOf(movieId);
+  removeFromlistFavorite(movieId: number): void {
+
+    if (this.user && this.user.id) {
+      const index = this.listFavorite.indexOf(movieId);
       if (index > -1) {
-        this.cart.splice(index, 1);
-        console.log(movieId);
+        this.listFavorite.splice(index, 1);
 
-        this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
-            const favoriteToRemove = favorites.find((favorite) => favorite.movieId === movieId);
-            console.log(favoriteToRemove?.id);
-            if (favoriteToRemove?.id) {
-              this.authSrv.remove(favoriteToRemove?.id).subscribe(
-                (response) => {
-                  console.log('Film rimosso dai preferiti', response);
+        this.movieSrv.getFavoritesByUserId(this.user.id).subscribe((favorites: Favorites[]) => {
+          const favoriteToRemove = favorites.find((favorite) => favorite.movieId === movieId);
 
-                }
-              );
-            }
-          });
+          if (favoriteToRemove?.id) {
+            this.movieSrv.removeFavoriteFromFavorites(favoriteToRemove?.id).subscribe();
+          }
+          this.loadFavorites();
+        });
       }
-
-      this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
-        this.favorites = favorites
-        console.log(favorites);
-          });
     }
-
+  }
+  loadFavorites(): void {
+    if (this.user?.id) {
+      this.subFavorites = this.movieSrv
+        .getFavoritesByUserId(this.user.id)
+        .subscribe((favorites: Favorites[]) => {
+          this.favorites = favorites;
+          console.log('Lista film preferiti aggiornati')
+          console.log(favorites);
+        });
+    }
   }
 }
