@@ -4,6 +4,7 @@ import { Movie } from 'src/app/models/movie.interface';
 import { User } from 'src/app/models/user.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Favorites } from 'src/app/models/favorites.interface';
 
 @Component({
   selector: 'app-movies',
@@ -13,27 +14,26 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class MoviesComponent implements OnInit {
   user!: User;
   cart: number[] = [];
-
-  sub!: Subscription;
+  favMovie!: Favorites;
+  subMovies!: Subscription;
+  subFavorites!: Subscription;
   movies!: Movie[];
-
+  favorites!:Favorites[]
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) {}
 
   ngOnInit(): void {
-    this.sub = this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
+    this.subMovies = this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
       this.movies = movies;
       console.log(this.movies);
-
     });
 
     this.user = this.authSrv.recuperoUserDati();
-  }
-
-  toggleCart(movieId: number): void {
-    if (this.isMovieInCart(movieId)) {
-      this.removeFromCart(movieId);
-    } else {
-      this.addToCart(movieId);
+    if (this.user.id) {
+      console.log(this.user.id);
+    this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
+      this.favorites = favorites
+      console.log(favorites);
+        });
     }
   }
 
@@ -43,38 +43,52 @@ export class MoviesComponent implements OnInit {
     return inCart;
   }
 
-
-
   addToCart(movieId: number): void {
+
+    this.user = this.authSrv.recuperoUserDati();
+
     if (this.user.id) {
-      const favMovie = { movieId: movieId, userId: this.user.id };
+      this.favMovie = { movieId: movieId, userId: this.user.id };
       this.cart.push(movieId);
       console.log(movieId);
-      this.authSrv.favourite(favMovie).subscribe(
-        response => {
-
+      this.movieSrv.favourite(this.favMovie).subscribe(
+        (response) => {
           console.log('Film aggiunto ai preferiti', response);
-        },
-        error => {
-
-          console.error('Errore durante l\'aggiunta del film ai preferiti', error);
         }
-      );
-    } else {
-      console.error('Pirata non definito!');
+      )
+      this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
+      this.favorites = favorites
+      console.log(favorites);
+        });
     }
+
   }
 
-
   removeFromCart(movieId: number): void {
-    if(this.user.id){
+    if (this.user.id) {
       const index = this.cart.indexOf(movieId);
-    if (index > -1) {
-      this.cart.splice(index, 1);
-      console.log(movieId);
-      console.log(this.cart.indexOf(movieId)+1)
-    }
-    this.authSrv.remove(this.cart.indexOf(movieId)+2).subscribe()
+      if (index > -1) {
+        this.cart.splice(index, 1);
+        console.log(movieId);
+
+        this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
+            const favoriteToRemove = favorites.find((favorite) => favorite.movieId === movieId);
+            console.log(favoriteToRemove?.id);
+            if (favoriteToRemove?.id) {
+              this.authSrv.remove(favoriteToRemove?.id).subscribe(
+                (response) => {
+                  console.log('Film rimosso dai preferiti', response);
+
+                }
+              );
+            }
+          });
+      }
+
+      this.subFavorites =  this.movieSrv.getFavorites(this.user.id).subscribe((favorites: Favorites[]) => {
+        this.favorites = favorites
+        console.log(favorites);
+          });
     }
 
   }

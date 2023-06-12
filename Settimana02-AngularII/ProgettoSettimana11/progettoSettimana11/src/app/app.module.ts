@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms'
 import { AuthGuard } from './auth/auth.guard';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
+
 
 const routes: Routes =[
   {
@@ -31,7 +33,17 @@ const routes: Routes =[
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path:'**',
+    component:NotFound404Component,
+    canActivate: [AuthGuard]
   }
+
+
+
+
+
 ]
 @NgModule({
   declarations: [

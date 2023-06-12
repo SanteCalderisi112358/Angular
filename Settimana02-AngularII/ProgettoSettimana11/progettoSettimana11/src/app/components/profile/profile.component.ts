@@ -15,9 +15,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
+    this.user = this.authSrv.recuperoUserDati();
+console.log(this.user);
 
-     this.user = this.authSrv.recuperoUserDati();
-     console.log(this.user);
 
 
   }

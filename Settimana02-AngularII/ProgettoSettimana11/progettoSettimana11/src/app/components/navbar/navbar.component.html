@@ -22,6 +22,9 @@
               <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"></a>
             </li>
+            <li class="nav-item" *ngIf="!user">
+              <a class="nav-link" [routerLink]="['**']" routerLinkActive="active"></a>
+            </li>
 
             <div id="user" *ngIf="user" class="d-flex align-items-center">
               <h3 class="me-2">

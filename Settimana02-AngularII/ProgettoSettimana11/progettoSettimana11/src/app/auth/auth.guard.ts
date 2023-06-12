@@ -1,3 +1,5 @@
+//serve per proteggere le rotte in caso di assenza di un login corretto
+
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -30,7 +32,9 @@ export class AuthGuard implements CanActivate {
         if (user) {
           return true;
         } else {
+          console.log('ciao')
           alert('Non fare il furbo!')
+
           return this.router.createUrlTree(['/']);
 
         }

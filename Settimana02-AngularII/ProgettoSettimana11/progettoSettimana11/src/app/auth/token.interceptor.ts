@@ -1,3 +1,4 @@
+/*File che serve per intercettare il token*/
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,

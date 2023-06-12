@@ -2,49 +2,22 @@
   "users": [
     {
       "email": "santecalderisi@gmail.com",
-      "password": "$2a$10$Iw.qUOqQpqT3go38fm06Ren8vbB5wUeJClg36ESxGF0/Ex1C0ryju",
+      "password": "$2a$10$Rc5hB.LBoBGm9TGm6YSnCOWTPlaO2gWhpkKfZ.kZe3V6fG2hHNl8C",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
-    },
-    {
-      "email": "luca@gentili.it",
-      "password": "$2a$10$THv4aekEX/MEZwnKBApAEu2hqGEpBPsIL9Yw8mBO2I1wQUxSrKVYC",
-      "nome": "Luca",
-      "cognome": "gentili",
-      "id": 2
     }
   ],
   "favorites": [
     {
+      "movieId": 632357,
+      "userId": 1,
+      "id": 1
+    },
+    {
       "movieId": 578701,
-      "userId": 2,
+      "userId": 1,
       "id": 2
-    },
-    {
-      "movieId": 578701,
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "movieId": 578701,
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "movieId": 632357,
-      "userId": 2,
-      "id": 5
-    },
-    {
-      "movieId": 632357,
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "movieId": 632357,
-      "userId": 2,
-      "id": 7
     }
   ],
   "genres": [
