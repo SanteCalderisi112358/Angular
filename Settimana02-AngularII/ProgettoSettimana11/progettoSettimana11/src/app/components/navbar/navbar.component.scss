@@ -1,10 +1,10 @@
 #logo {
   font-family: "Arial", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   color: #1A98FF;
   letter-spacing: 2px;
-  margin-left: 150px;
+
 }
 
 #user {
@@ -28,8 +28,8 @@
     }
 
     span {
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       background-color: green;
       position: absolute;
       right: 0;
@@ -39,10 +39,14 @@
     .dropdown-item:hover {
       color: #1A98FF
     }
+    .dropdown-menu{
+      left: -125px;
+    }
   }
 }
 
 nav {
+background-color: #00050D;
 
   a {
     color: #00050D;

@@ -14,6 +14,6 @@ export class NotFound404Component implements OnInit {
   }
 
   comeBack(){
-    this.router.navigate(['/profile'])
+    this.router.navigate(['/movies'])
   }
 }

@@ -1,8 +1,6 @@
 main{
   color: white;
-  .card-body{
-    color: white;
-  }
+  margin-bottom: 50px;
 }
 
 a{
@@ -24,7 +22,9 @@ i{
   border: none;
   box-shadow: none;
 }
-
+.card-body{
+    color: white;
+  }
 }
 
 

@@ -1,0 +1,17 @@
+<main>
+  <div class="card text-center">
+    <img class="card-img-top" [src]="'http://image.tmdb.org/t/p/w500' + movie?.poster_path" [alt]="movie?.title" />
+    <div class="card-body">
+      <h2 class="card-title">{{ movie?.title }}</h2>
+      <p class="card-text">{{ movie?.release_date }}</p>
+      <p class="card-text"> {{ movie?.overview }}</p>
+      <p class="card-text">IMDb {{movie?.vote_average}}</p>
+
+    </div>
+  </div>
+
+
+
+</main>
+
+
