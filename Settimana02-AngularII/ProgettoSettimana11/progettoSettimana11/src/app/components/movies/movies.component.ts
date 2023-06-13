@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.interface';
 import { User } from 'src/app/models/user.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Favorites } from 'src/app/models/favorites.interface';
-
+import { Genres } from 'src/app/models/genres.interface';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -17,7 +17,7 @@ export class MoviesComponent implements OnInit {
   favMovie!: Favorites;
   subMovies!: Subscription;
   subFavorites!: Subscription;
-
+  genres!: Genres[];
   movies!: Movie[];
   favorites!: Favorites[];
 
@@ -35,6 +35,8 @@ export class MoviesComponent implements OnInit {
       console.log(this.user);
       this.loadFavorites();
     }
+
+    this.getAllGenres()
   }
 
 
@@ -100,5 +102,28 @@ export class MoviesComponent implements OnInit {
           console.log(favorites);
         });
     }
+  }
+  selectedGenre(e: Event) {
+    const selectedGenreId = Number((<HTMLSelectElement>e.target).value);
+    console.log('Id del genere:', selectedGenreId);
+
+    this.movieSrv.getAllMovies().subscribe((movies) => {
+      this.movies = movies.filter(movie => movie.genre_ids.includes(selectedGenreId));
+
+      if (this.movies.length === 0) {
+        console.log('Nessun film corrispondente al genere selezionato');
+      } else {
+        console.log('Lista film del genere selezionato:', this.movies);
+      }
+    });
+  }
+
+
+
+  getAllGenres(){
+    this.movieSrv.getGenres().subscribe((_genres:Genres[])=>{
+      this.genres = _genres
+      console.log(_genres)
+    })
   }
 }

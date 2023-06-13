@@ -1,7 +1,15 @@
 
  <main>
+  <div class="d-flex container">
+    <select name="genres" id="genres" (change)="selectedGenre($event)">
+        <option *ngFor="let genre of genres" [value]="genre.id" >{{genre.name}}</option>
+      </select>
+  </div>
   <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container">
+    <div *ngIf="movies.length === 0" class="text-center">
+      Nessun film corrispondente al genere selezionato.
+    </div>
     <div *ngFor="let movie of movies; let i = index">
       <div class="card m-2" style="width: 200px">
         <img class="rounded" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" [alt]="movie.title" />

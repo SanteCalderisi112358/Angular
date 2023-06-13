@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/movie.interface';
 import { Favorites } from '../models/favorites.interface';
-
+import { Genres } from '../models/genres.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -25,6 +25,9 @@ export class MoviesService {
     );
   }
 
+  getGenres(){
+    return this.http.get<Genres[]>(`${this.baseUrl}genres`)
+  }
   addFavouriteToFavorites(favMovie: Favorites) {
     return this.http.post<Favorites[]>(`${this.baseUrl}favorites`, favMovie);
   }
