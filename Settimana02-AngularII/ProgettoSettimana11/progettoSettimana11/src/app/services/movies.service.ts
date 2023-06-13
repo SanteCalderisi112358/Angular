@@ -26,6 +26,6 @@ export class MoviesService {
   }
 
   addFavouriteToFavorites(favMovie: Favorites) {
-    return this.http.post(`${this.baseUrl}favorites`, favMovie);
+    return this.http.post<Favorites[]>(`${this.baseUrl}favorites`, favMovie);
   }
 }

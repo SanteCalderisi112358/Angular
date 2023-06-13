@@ -32,8 +32,8 @@ export class AuthGuard implements CanActivate {
         if (user) {
           return true;
         } else {
-          console.log('ciao')
-          alert('Non fare il furbo!')
+
+          alert('Non fare il furbo! Se vuoi consultare il nostro mondo videoludico REGISTRATI!')
 
           return this.router.createUrlTree(['/']);
 

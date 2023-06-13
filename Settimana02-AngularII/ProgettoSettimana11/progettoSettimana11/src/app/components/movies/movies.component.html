@@ -26,9 +26,7 @@
   <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container">
     <div *ngFor="let movie of movies; let i = index">
-      <div>
 
-      </div>
       <div class="card m-2" style="width: 200px">
         <img class="rounded" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top"
           [alt]="movie.title" />
@@ -46,6 +44,7 @@
           </a>
         </div>
       </div>
+
     </div>
   </section>
 </main>

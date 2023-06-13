@@ -31,28 +31,28 @@ export class MoviesComponent implements OnInit {
 
     this.user = this.authSrv.recuperoUserDati();
     if (this.user && this.user.id) {
-      console.log(this.user.id);
+      console.log("Utente:")
+      console.log(this.user);
       this.loadFavorites();
     }
   }
 
-  isMovieInlistFavorite(movieId: number): boolean {
-    return this.listFavorite.includes(movieId);
-  }
+
 
   addTolistFavorite(movieId: number): void {
     if (this.user && this.user.id) {
       this.favMovie = { movieId: movieId, userId: this.user.id };
       this.listFavorite.push(movieId);
       console.log(movieId);
-      this.movieSrv
-        .addFavouriteToFavorites(this.favMovie)
-        .subscribe((response) => {
+      this.movieSrv.addFavouriteToFavorites(this.favMovie).subscribe((response) => {
           console.log('Film aggiunto ai preferiti', response);
           this.loadFavorites();
         });
     }
+    this.isMovieInlistFavorite(movieId)
   }
+
+
 
   removeFromlistFavorite(movieId: number): void {
 
@@ -71,13 +71,31 @@ export class MoviesComponent implements OnInit {
         });
       }
     }
+    this.isMovieInlistFavorite(movieId)
   }
+
+  //metodo iniziale per il controllo dei button senza le condizioni del film preferito se presente o no
+  // isMovieInlistFavorite(movieId: number): boolean {
+  //   return this.listFavorite.includes(movieId);
+  // }
+
+  isMovieInlistFavorite(movieId: number): boolean {
+    if (this.favorites && this.favorites.length > 0) {
+      const foundFavorite:Favorites|undefined = this.favorites.find(
+        (favorite) => favorite.movieId === movieId && favorite.userId === this.user.id
+      );
+      return !!foundFavorite;
+    }
+    return false;
+  }
+
   loadFavorites(): void {
     if (this.user?.id) {
       this.subFavorites = this.movieSrv
         .getFavoritesByUserId(this.user.id)
         .subscribe((favorites: Favorites[]) => {
           this.favorites = favorites;
+          this.listFavorite = favorites.map((favorite) => favorite.movieId);
           console.log('Lista film preferiti aggiornati')
           console.log(favorites);
         });

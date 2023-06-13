@@ -1,33 +1,39 @@
 {
   "users": [
     {
-      "email": "santecalderisi@gmail.com",
-      "password": "$2a$10$tXhZL8Cmh1sZQmRdinU/sOPC2RrHOAgJceCTRMGvAxHJDJEsqY886",
+      "email": "dadegi@hotmail.it",
+      "password": "$2a$10$QrA4t.hX.Se3VOc1y6IIJuU9hADSQ9kz/BowhssOxYWbTQvhMccw2",
+      "nome": "Dario",
+      "cognome": "Del Giudice",
+      "id": 1
+    },
+    {
+      "email": "santecalderisi@yahoo.it",
+      "password": "$2a$10$KN6HIzgmC0Ytgb1xpPBP4.VgXdwLgJt3l47Wa16XE4YCHk6I1VXl.",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 2
+    },
+    {
+      "email": "santecalderisi@gmail.it",
+      "password": "$2a$10$D2CG1s4mHy.4yCPP/fcNEu09Llx6.GgLBHEMLbKKJRh026oyupBA6",
+      "nome": "Sante",
+      "cognome": "Calderisi",
+      "id": 3
+    },
+    {
+      "email": "sa@ciao.it",
+      "password": "$2a$10$mqBiCfia3plT16mj/zwaEeuCZsMjlUCfkWhSMafZcRYfnGqwrNmla",
+      "nome": "Giulio",
+      "cognome": "Sa",
+      "id": 4
     }
   ],
   "favorites": [
     {
-      "movieId": 632357,
-      "userId": 1,
-      "id": 1
-    },
-    {
       "movieId": 578701,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "movieId": 567189,
-      "userId": 1,
+      "userId": 4,
       "id": 3
-    },
-    {
-      "movieId": 460465,
-      "userId": 1,
-      "id": 4
     }
   ],
   "genres": [
