@@ -5,6 +5,26 @@ main{
   }
 }
 
-a i{
+a{
+  background-color: transparent;
+  border: none;
+i{
   font-size: 20px;
 }
+
+
+}
+
+.card {
+  transition: transform 0.2s;
+  border: none;
+  box-shadow: none;
+&:hover {
+  transform: scale(1.05);
+  border: none;
+  box-shadow: none;
+}
+
+}
+
+

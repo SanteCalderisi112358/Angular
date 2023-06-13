@@ -1,27 +1,4 @@
-<!-- <main>
 
-  <h1 class="text-center">I film del momento</h1>
-  <section class="d-flex justify-content-between flex-wrap container">
-    <div *ngFor="let movie of movies, let i = index">
-      <div class="card m-2" style="width: 200px">
-        <img class="rounded" type="button" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path"
-          class="card-img-top" [alt]="movie.title" />
-        <div class="card-body" style="background-color: black">
-          <h3 class="card-title text-center" style="height: 70px">
-            {{ movie.title }}
-          </h3>
-
-          <a *ngIf="!isMovieInCart(movie.id)"  class="btn btn-primary rounded-circle" (click)="addToCart(movie.id)" title="Aggiungi alla Lista">
-            <i class="bi bi-plus-circle"></i>
-          </a>
-          <a *ngIf="isMovieInCart(movie.id)" class="btn btn-primary rounded-circle" (click)="removeFromCart(movie.id)" title="Rimuovi dalla Lista">
-            <i style="color: black;" class="bi bi-x-circle"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main> -->
 <main>
   <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container">
@@ -40,7 +17,7 @@
           </a>
 
           <a *ngIf="isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle" (click)="removeFromlistFavorite(movie.id)" title="Rimuovi dalla Lista">
-            <i style="color: black" class="bi bi-x-circle"></i>
+            <i style="color: red;" class="bi bi-x-circle"></i>
           </a>
         </div>
       </div>

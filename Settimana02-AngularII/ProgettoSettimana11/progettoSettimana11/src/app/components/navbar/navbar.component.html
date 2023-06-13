@@ -10,11 +10,9 @@
         <div class="collapse navbar-collapse me-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-around align-items-center w-100">
             <li class="nav-item" *ngIf="user">
-              <a class="nav-link" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Movies</a>
+              <a class="nav-link" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active" style="color: aliceblue;">Movies</a>
             </li>
-            <li class="nav-item" *ngIf="user">
-              <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active">Profilo</a>
-            </li>
+
             <li class="nav-item" *ngIf="!user">
               <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active"></a>
             </li>
@@ -30,20 +28,27 @@
               <h3 class="me-2">
                 Felice di riaverti a bordo, {{ user.user.nome }}
               </h3>
-              <div class="rounded-circle d-flex justify-content-center align-items-center">
-                <span class="rounded-circle"></span>
-                <p>
-                  {{ user.user.nome[0].toUpperCase()
-                  }}{{ user.user.cognome[0].toUpperCase() }}
-                </p>
+              <div class="dropdown rounded-circle">
+                <div class="rounded-circle d-flex justify-content-center align-items-center dropdown-toggle"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="rounded-circle ms-1"></span>
+                  <p class="ms-1">
+                    {{ user.user.nome[0].toUpperCase()
+                    }}{{ user.user.cognome[0].toUpperCase() }}
+                  </p>
+                </div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" [routerLink]="['/profile']" routerLinkActive="active">Profilo<i
+                        class="bi bi-person ms-3"></i></a></li>
+                  <li><a class="dropdown-item" type="button" (click)="logout()">Logout<i
+                        class="bi bi-box-arrow-right ms-3"></i></a></li>
+
+                </ul>
               </div>
+
             </div>
 
-            <div>
-              <li class="nav-item" *ngIf="user">
-                <a type="button" (click)="logout()"><i class="bi bi-box-arrow-right"></i></a>
-              </li>
-            </div>
+
           </ul>
         </div>
       </div>

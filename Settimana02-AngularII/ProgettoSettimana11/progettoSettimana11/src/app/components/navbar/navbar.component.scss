@@ -4,25 +4,30 @@
   font-weight: bold;
   color: #1A98FF;
   letter-spacing: 2px;
-
+  margin-left: 150px;
 }
 
-#user{
-  h3{
+#user {
+
+  h3 {
     color: white;
     margin-bottom: 0;
   }
-  div{
-    width: 30px;
-    height: 30px;
+
+  div {
+    width: 40px;
+    height: 40px;
     background-color: white;
     position: relative;
-    p{
+
+    p {
       margin: 0;
       font-weight: 900;
       font-size: 15px;
+      color: #00050D;
     }
-    span{
+
+    span {
       width: 10px;
       height: 10px;
       background-color: green;
@@ -30,18 +35,23 @@
       right: 0;
       bottom: 0;
     }
-  }
-}
-nav{
-  background-color: #00050D;
-  a{
-    color: #BABCBE;
-  }
-  .bi:hover{
-    color: #1A98FF;
+
+    .dropdown-item:hover {
+      color: #1A98FF
+    }
   }
 }
 
-.navbar-nav .nav-link.active{
-  color: #FFFFFF
+nav {
+
+  a {
+    color: #00050D;
+
+
+  }
+
+  &:hover {
+    color: #1A98FF
+  }
+
 }
