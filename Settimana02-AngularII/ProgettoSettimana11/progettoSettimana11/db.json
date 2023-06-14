@@ -34,6 +34,13 @@
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 5
+    },
+    {
+      "email": "giulio@argentieri.it",
+      "password": "$2a$10$xfJmEqHMjjRcgIBaobGQIeoKRHZKjmW39aFl8bcBj8n4qH7xRBhUm",
+      "nome": "Giulio",
+      "cognome": "Argentieri",
+      "id": 6
     }
   ],
   "favorites": [
@@ -78,9 +85,44 @@
       "id": 21
     },
     {
-      "movieId": 578701,
+      "movieId": 460465,
       "userId": 2,
-      "id": 22
+      "id": 23
+    },
+    {
+      "movieId": 615457,
+      "userId": 2,
+      "id": 24
+    },
+    {
+      "movieId": 808023,
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "movieId": 567189,
+      "userId": 1,
+      "id": 26
+    },
+    {
+      "movieId": 632357,
+      "userId": 1,
+      "id": 27
+    },
+    {
+      "movieId": 460465,
+      "userId": 6,
+      "id": 28
+    },
+    {
+      "movieId": 567189,
+      "userId": 6,
+      "id": 29
+    },
+    {
+      "movieId": 632357,
+      "userId": 6,
+      "id": 30
     }
   ],
   "genres": [

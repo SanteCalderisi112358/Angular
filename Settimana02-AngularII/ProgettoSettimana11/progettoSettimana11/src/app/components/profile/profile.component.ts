@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private authSrv: AuthService) {}
 
   ngOnInit() {
-    this.user = this.authSrv.recuperoUserDati();
+    this.user = this.authSrv.getUserData();
     console.log(this.user);
 
     const storedRegistrationDate = localStorage.getItem('registrationDate');

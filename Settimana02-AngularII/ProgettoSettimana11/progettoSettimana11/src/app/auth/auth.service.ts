@@ -93,7 +93,7 @@ export class AuthService {
     }, expirationMilliseconds);
   }
 
-  recuperoUserDati(): User {
+  getUserData(): User {
     return this.userProfile;
   }
 }

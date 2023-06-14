@@ -1,35 +1,48 @@
- <main>
-  <div class="form-group mb-5">
+<main>
+  <div class="form-group mb-5 d-flex justify-content-between container">
 
-    <div class="d-flex container fake-select w-25">
-    <select class="form-control" name="genres" id="form-select" (change)="selectedGenre($event)">
+    <div class="  w-25">
+      <select class="form-control" name="genres" id="form-select" (change)="selectedGenre($event)">
         <option value="">Scegli per genere...</option>
-        <option *ngFor="let genre of genres" [value]="genre.id" >{{genre.name}}</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
       </select>
+
+    </div>
+    <form class="input-search">
+      <input type="text" name="search" id="search" [(ngModel)]="searchInput">
+      <a type="submit" (click)="searchByTitle()"><i class="bi bi-search"></i></a>
+    </form>
+
   </div>
+  <div class="container">
+    <h1 class="text-center" *ngIf="!searching">I film del momento</h1>
+    <h1 class="text-start" *ngIf="searching">Risultati della ricerca</h1>
   </div>
 
-  <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container mb-5
 1 \AQ0">
     <div *ngIf="movies?.length === 0" class="text-center">
-      Nessun film corrispondente al genere selezionato.
+      Nessun film corrispondente alla ricerca
     </div>
-    <div *ngFor="let movie of movies; let i = index">
+    <div *ngFor="let movie of movies let i = index">
       <div class="card m-2" style="width: 200px">
-        <img class="rounded" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" [alt]="movie.title" />
+        <img class="rounded" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top"
+          [alt]="movie.title" />
         <div class="card-body" style="background-color: black">
           <h3 class="card-title text-center" style="height: 70px">{{ movie.title }}</h3>
           <div class="d-flex justify-content-between">
-            <a *ngIf="!isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle" (click)="addTolistFavorite(movie.id)" title="Aggiungi alla Lista">
-            <i class="bi bi-plus-circle"></i>
-          </a>
-          <a *ngIf="isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle" (click)="removeFromlistFavorite(movie.id)" title="Rimuovi dalla Lista">
-            <i class="bi bi-check-lg"></i>
-          </a>
-          <a class="btn btn-primary rounded-circle" [routerLink]="['/movie-detail', movie.id]" title="Dai un'occhiata ai dettagli">
-            <i class="bi bi-info-circle"></i>
-          </a>
+            <a *ngIf="!isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle"
+              (click)="addTolistFavorite(movie.id)" title="Aggiungi alla Lista">
+              <i class="bi bi-plus-circle"></i>
+            </a>
+            <a *ngIf="isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle"
+              (click)="removeFromlistFavorite(movie.id)" title="Rimuovi dalla Lista">
+              <i class="bi bi-check-lg"></i>
+            </a>
+            <a class="btn btn-primary rounded-circle" [routerLink]="['/movie-detail', movie.id]"
+              title="Dai un'occhiata ai dettagli">
+              <i class="bi bi-info-circle"></i>
+            </a>
           </div>
 
         </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.interface';
 import { User } from 'src/app/models/user.interface';
@@ -6,12 +6,13 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Favorites } from 'src/app/models/favorites.interface';
 import { Genres } from 'src/app/models/genres.interface';
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss'],
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit, OnDestroy {
   user!: User;
   listFavorite: number[] = [];
   favMovie!: Favorites;
@@ -20,6 +21,8 @@ export class MoviesComponent implements OnInit {
   genres!: Genres[];
   movies!: Movie[];
   favorites!: Favorites[];
+  searching:boolean = false
+  searchInput!: string;
 
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 
@@ -29,7 +32,7 @@ export class MoviesComponent implements OnInit {
       console.log(this.movies);
     });
 
-    this.user = this.authSrv.recuperoUserDati();
+    this.user = this.authSrv.getUserData();
     if (this.user && this.user.id) {
       console.log("Utente:")
       console.log(this.user);
@@ -104,6 +107,7 @@ export class MoviesComponent implements OnInit {
     }
   }
   selectedGenre(e: Event) {
+    this.searching =true
     const selectedGenreId = Number((<HTMLSelectElement>e.target).value);
     console.log('Id del genere:', selectedGenreId);
 
@@ -116,10 +120,32 @@ export class MoviesComponent implements OnInit {
 
 
 
+  searchByTitle() {
+    console.log(this.searchInput);
+    this.movieSrv.getAllMovies().subscribe((movies) => {
+      this.movies = movies.filter(movie =>
+        movie.title.trim().toUpperCase().includes(this.searchInput.trim().toUpperCase())
+      );
+        this.searchInput=''
+    });
+  }
+
+
+
   getAllGenres() {
     this.movieSrv.getGenres().subscribe((_genres: Genres[]) => {
       this.genres = _genres
       console.log(_genres)
     })
+  }
+
+  ngOnDestroy(): void {
+    if (this.subMovies) {
+      this.subMovies.unsubscribe();
+    }
+
+    if (this.subFavorites) {
+      this.subFavorites.unsubscribe();
+    }
   }
 }
