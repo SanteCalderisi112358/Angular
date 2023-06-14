@@ -27,6 +27,13 @@
       "nome": "Gaetano",
       "cognome": "Notarangelo",
       "id": 4
+    },
+    {
+      "email": "santecalderisi@gmail.com",
+      "password": "$2a$10$NiyOjC2Sc50XgjxM4E1wRO4jEk71mbCE0w4z07TgHfdKm4v3NYmEK",
+      "nome": "Sante",
+      "cognome": "Calderisi",
+      "id": 5
     }
   ],
   "favorites": [
@@ -47,11 +54,6 @@
     },
     {
       "movieId": 567189,
-      "userId": 2,
-      "id": 13
-    },
-    {
-      "movieId": 567189,
       "userId": 4,
       "id": 14
     },
@@ -66,9 +68,19 @@
       "id": 16
     },
     {
-      "movieId": 460465,
+      "movieId": 811367,
+      "userId": 5,
+      "id": 20
+    },
+    {
+      "movieId": 567189,
       "userId": 2,
-      "id": 17
+      "id": 21
+    },
+    {
+      "movieId": 578701,
+      "userId": 2,
+      "id": 22
     }
   ],
   "genres": [

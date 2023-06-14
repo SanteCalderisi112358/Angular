@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   genres!: Genres[];
   movies!: Movie[];
   favorites!: Favorites[];
-  searchByGenres:boolean = false
+
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 
   ngOnInit(): void {

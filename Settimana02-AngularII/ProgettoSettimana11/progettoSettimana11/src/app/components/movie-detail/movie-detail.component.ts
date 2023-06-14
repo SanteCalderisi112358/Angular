@@ -4,6 +4,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/services/movies.service';
 
 
+
+
+
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
