@@ -17,14 +17,25 @@ i{
   transition: transform 0.2s;
   border: none;
   box-shadow: none;
+  background-size: cover;
 &:hover {
   transform: scale(1.05);
   border: none;
   box-shadow: none;
+
+}
+img{
+  overflow: hidden;
 }
 .card-body{
     color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+    h3{
+      height: 135px;
+      font-weight: 500;
+    }
   }
+
 }
 .input-search {
   display: flex;

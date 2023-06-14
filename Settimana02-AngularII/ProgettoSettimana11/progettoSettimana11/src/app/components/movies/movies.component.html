@@ -25,11 +25,10 @@
       Nessun film corrispondente alla ricerca
     </div>
     <div *ngFor="let movie of movies let i = index">
-      <div class="card m-2" style="width: 200px">
-        <img class="rounded" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top"
-          [alt]="movie.title" />
-        <div class="card-body" style="background-color: black">
-          <h3 class="card-title text-center" style="height: 70px">{{ movie.title }}</h3>
+      <div class="card rounded m-2" style="width: 200px; background-image: url('http://image.tmdb.org/t/p/w500{{ movie.poster_path }}');">        <!-- <img class="rounded" height="200px" [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top"
+          [alt]="movie.title" /> -->
+        <div class="card-body" >
+          <h3 class="card-title text-center">{{ movie.title }}</h3>
           <div class="d-flex justify-content-between">
             <a *ngIf="!isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle"
               (click)="addTolistFavorite(movie.id)" title="Aggiungi alla Lista">
