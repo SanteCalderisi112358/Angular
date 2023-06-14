@@ -1,13 +1,18 @@
 
  <main>
-  <div class="d-flex container">
-    <select name="genres" id="genres" (change)="selectedGenre($event)">
+  <div class="form-group mb-5">
+
+    <div class="d-flex container fake-select w-25">
+    <select class="form-control" name="genres" id="form-select" (change)="selectedGenre($event)">
+        <option value="">Scegli per genere...</option>
         <option *ngFor="let genre of genres" [value]="genre.id" >{{genre.name}}</option>
       </select>
   </div>
+  </div>
+
   <h1 class="text-center">I film del momento</h1>
   <section class="d-flex justify-content-between flex-wrap container">
-    <div *ngIf="movies.length === 0" class="text-center">
+    <div *ngIf="movies?.length === 0" class="text-center">
       Nessun film corrispondente al genere selezionato.
     </div>
     <div *ngFor="let movie of movies; let i = index">

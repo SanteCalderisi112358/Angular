@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   genres!: Genres[];
   movies!: Movie[];
   favorites!: Favorites[];
-
+  searchByGenres:boolean = false
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 
   ngOnInit(): void {
@@ -47,9 +47,9 @@ export class MoviesComponent implements OnInit {
       this.listFavorite.push(movieId);
       console.log(movieId);
       this.movieSrv.addFavouriteToFavorites(this.favMovie).subscribe((response) => {
-          console.log('Film aggiunto ai preferiti', response);
-          this.loadFavorites();
-        });
+        console.log('Film aggiunto ai preferiti', response);
+        this.loadFavorites();
+      });
     }
     this.isMovieInlistFavorite(movieId)
   }
@@ -83,7 +83,7 @@ export class MoviesComponent implements OnInit {
 
   isMovieInlistFavorite(movieId: number): boolean {
     if (this.favorites && this.favorites.length > 0) {
-      const foundFavorite:Favorites|undefined = this.favorites.find(
+      const foundFavorite: Favorites | undefined = this.favorites.find(
         (favorite) => favorite.movieId === movieId && favorite.userId === this.user.id
       );
       return !!foundFavorite;
@@ -109,19 +109,15 @@ export class MoviesComponent implements OnInit {
 
     this.movieSrv.getAllMovies().subscribe((movies) => {
       this.movies = movies.filter(movie => movie.genre_ids.includes(selectedGenreId));
+      console.log('Lista film del genere selezionato:', this.movies)
 
-      if (this.movies.length === 0) {
-        console.log('Nessun film corrispondente al genere selezionato');
-      } else {
-        console.log('Lista film del genere selezionato:', this.movies);
-      }
     });
   }
 
 
 
-  getAllGenres(){
-    this.movieSrv.getGenres().subscribe((_genres:Genres[])=>{
+  getAllGenres() {
+    this.movieSrv.getGenres().subscribe((_genres: Genres[]) => {
       this.genres = _genres
       console.log(_genres)
     })
