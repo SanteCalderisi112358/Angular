@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  accedi(form:NgForm){
+  access(form:NgForm){
     this.isLoading = true
     console.log(form.value)
     try {

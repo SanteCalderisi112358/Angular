@@ -6,14 +6,23 @@
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
+    },
+    {
+      "email": "antonio@giuliani.com",
+      "password": "$2a$10$bC3SqciPeo72d7Q/HIWV5eSj6MuOnBmWhiIPtqdPyp4IhtV.jYhyq",
+      "nome": "Antonio",
+      "cognome": "Giuliani",
+      "id": 2
+    },
+    {
+      "email": "dadegi@hotmail.it",
+      "password": "$2a$10$aOCLvGB.0s2FFetqLEI90eN8aUtueOdaW5dhQhhjQob/wI4WDpKdC",
+      "nome": "Dario",
+      "cognome": "Del Giudice",
+      "id": 3
     }
   ],
   "favorites": [
-    {
-      "movieId": 460465,
-      "userId": 1,
-      "id": 1
-    },
     {
       "movieId": 567189,
       "userId": 1,
@@ -23,6 +32,26 @@
       "movieId": 578701,
       "userId": 1,
       "id": 3
+    },
+    {
+      "movieId": 567189,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "movieId": 632357,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "movieId": 804435,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "movieId": 460465,
+      "userId": 1,
+      "id": 7
     }
   ],
   "genres": [

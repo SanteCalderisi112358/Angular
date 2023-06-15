@@ -35,14 +35,24 @@ export class MovieDetailComponent implements OnInit {
         this.titleMovie = this.movie.title
         console.log(this.titleMovie)
        this.http.get("https://imdb-api.com/en/API/Search/k_uu540viv/"+ this.titleMovie).subscribe((movieImdb=>{
-        this.movieImdb = movieImdb
-        console.log(this.movieImdb.results[0].id)
-        this.http.get("https://imdb-api.com/en/API/YouTubeTrailer/k_uu540viv/"+this.movieImdb.results[0].id).subscribe((movieImdbForYT)=>{
-        this.trailerMovie =movieImdbForYT
+        try{
+          this.movieImdb = movieImdb
+        console.log(this.movieImdb)
+        }
+        catch(error){
+          console.log(error)
+        }
+        this.http.get("https://imdb-api.com/en/API/YouTubeTrailer/k_uu540viv/"+this.movieImdb.results[0]).subscribe((movieImdbForYT)=>{
+          try{
+            this.trailerMovie =movieImdbForYT
         this.trailerUrl = this.trailerMovie.videoUrl
         console.log(this.trailerUrl)
         this.trailer = this.sanitizerSrv.bypassSecurityTrustResourceUrl(this.trailerUrl);
         console.log(this.trailer)
+          }
+        catch(error){
+          console.error(error)
+        }
       })
        }))
 
