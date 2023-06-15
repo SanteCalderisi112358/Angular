@@ -20,6 +20,13 @@
       "nome": "Dario",
       "cognome": "Del Giudice",
       "id": 3
+    },
+    {
+      "email": "andreagiuliani@gmail.com",
+      "password": "$2a$10$mnKrJ3qeew/qjas73FXEIu2lebAkf/kiQPrXkSa69wBIFZeLpypzi",
+      "nome": "Andrea",
+      "cognome": "Giuliani",
+      "id": 4
     }
   ],
   "favorites": [
@@ -52,6 +59,31 @@
       "movieId": 460465,
       "userId": 1,
       "id": 7
+    },
+    {
+      "movieId": 567189,
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "movieId": 632357,
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "movieId": 804435,
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "movieId": 460465,
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "movieId": 578701,
+      "userId": 4,
+      "id": 12
     }
   ],
   "genres": [

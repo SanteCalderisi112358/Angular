@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TokenInterceptor } from './auth/token.interceptor';
 
 
 const routes: Routes =[
@@ -73,7 +74,11 @@ const routes: Routes =[
     FormsModule
 
   ],
-  providers: [],
+  providers: [
+    // provide: HTTP_INTERCEPTORS,
+    // useClass: TokenInterceptor,
+    // multi:true
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
