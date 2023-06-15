@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/services/movies.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -15,22 +16,37 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MovieDetailComponent implements OnInit {
   id!: number;
   movie!: any;
-  backgroundImageUrl!: string;
+  movieImdb!:any
+  trailerMovie!:any
+  titleMovie!: string
+  trailer!:SafeResourceUrl
 
-
-  constructor(private route: ActivatedRoute, private movieSrv: MoviesService, private sanitizerSrv: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private movieSrv: MoviesService, private sanitizerSrv: DomSanitizer, private http:HttpClient) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = +params.get('id')!;
       console.log(this.id);
 
+      //Ho provato a far vedere anche il trailer...il codice funziona ma Youtube non me lo permette per autorizzazioni :(
       this.movieSrv.getAllMovies().subscribe(movies => {
         this.movie = movies.find(movie => movie.id === this.id);
-        console.log(this.movie);
-        this.backgroundImageUrl = `linear-gradient(0deg, rgba(1, 6, 0, 0.7456232492997199) 10%, rgba(13, 13, 13, 0.9781162464985994) 100%), url('http://image.tmdb.org/t/p/w500${this.movie?.poster_path}')`;
+        this.titleMovie = this.movie.title
+        console.log(this.titleMovie)
+       this.http.get("https://imdb-api.com/en/API/Search/k_uu540viv/"+ this.titleMovie).subscribe((movieImdb=>{
+        this.movieImdb = movieImdb
+        console.log(this.movieImdb.results[0].id)
+        this.http.get("https://imdb-api.com/en/API/YouTubeTrailer/k_uu540viv/"+this.movieImdb.results[0].id).subscribe((movieImdbForYT)=>{
+        this.trailerMovie =movieImdbForYT
+        const trailerUrl = this.trailerMovie.videoUrl
+        console.log(trailerUrl)
+        this.trailer = this.sanitizerSrv.bypassSecurityTrustResourceUrl(trailerUrl);
+        console.log(this.trailer)
+      })
+       }))
 
       });
     });
+
   }
 }
