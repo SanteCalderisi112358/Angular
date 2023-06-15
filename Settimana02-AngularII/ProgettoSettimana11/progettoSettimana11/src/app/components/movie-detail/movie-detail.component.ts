@@ -20,6 +20,7 @@ export class MovieDetailComponent implements OnInit {
   trailerMovie!:any
   titleMovie!: string
   trailer!:SafeResourceUrl
+  trailerUrl!:string
 
   constructor(private route: ActivatedRoute, private movieSrv: MoviesService, private sanitizerSrv: DomSanitizer, private http:HttpClient) { }
 
@@ -38,9 +39,9 @@ export class MovieDetailComponent implements OnInit {
         console.log(this.movieImdb.results[0].id)
         this.http.get("https://imdb-api.com/en/API/YouTubeTrailer/k_uu540viv/"+this.movieImdb.results[0].id).subscribe((movieImdbForYT)=>{
         this.trailerMovie =movieImdbForYT
-        const trailerUrl = this.trailerMovie.videoUrl
-        console.log(trailerUrl)
-        this.trailer = this.sanitizerSrv.bypassSecurityTrustResourceUrl(trailerUrl);
+        this.trailerUrl = this.trailerMovie.videoUrl
+        console.log(this.trailerUrl)
+        this.trailer = this.sanitizerSrv.bypassSecurityTrustResourceUrl(this.trailerUrl);
         console.log(this.trailer)
       })
        }))
