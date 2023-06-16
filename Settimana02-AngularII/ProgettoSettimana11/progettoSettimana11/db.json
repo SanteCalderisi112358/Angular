@@ -24,21 +24,6 @@
   ],
   "favorites": [
     {
-      "movieId": 460465,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "movieId": 578701,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "movieId": 804435,
-      "userId": 1,
-      "id": 3
-    },
-    {
       "movieId": 632357,
       "userId": 3,
       "id": 4
@@ -52,6 +37,61 @@
       "movieId": 567189,
       "userId": 3,
       "id": 6
+    },
+    {
+      "movieId": 567189,
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "movieId": 578701,
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "movieId": 632357,
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "movieId": 460465,
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "movieId": 573680,
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "movieId": 717192,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "movieId": 808023,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "movieId": 573680,
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "movieId": 635302,
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "movieId": 527774,
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "movieId": 586047,
+      "userId": 1,
+      "id": 20
     }
   ],
   "genres": [

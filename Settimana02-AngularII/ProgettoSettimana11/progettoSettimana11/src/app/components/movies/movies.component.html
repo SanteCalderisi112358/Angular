@@ -19,14 +19,14 @@
     <h1 class="text-start" *ngIf="searching">Risultati della ricerca</h1>
   </div>
 
-  <section class="d-flex justify-content-between flex-wrap container mb-5
-1 \AQ0">
+  <section class="d-flex justify-content-between flex-wrap container mb-5">
     <div *ngIf="movies?.length === 0" class="text-center">
       Nessun film corrispondente alla ricerca
     </div>
     <div *ngFor="let movie of movies let i = index">
-      <div class="card rounded m-2" style="width: 200px; background-image: url('http://image.tmdb.org/t/p/w500{{ movie.poster_path }}');">
-        <div class="card-body" >
+      <div class="card rounded m-2"
+        style="width: 200px; background-image: url('http://image.tmdb.org/t/p/w500{{ movie.poster_path }}');">
+        <div class="card-body">
           <h3 class="card-title text-center">{{ movie.title }}</h3>
           <div class="d-flex justify-content-between">
             <a *ngIf="!isMovieInlistFavorite(movie.id)" class="btn btn-primary rounded-circle"

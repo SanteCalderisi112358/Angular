@@ -16,6 +16,7 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 
 const routes: Routes =[
@@ -44,6 +45,11 @@ const routes: Routes =[
     canActivate: [AuthGuard]
   },
   {
+    path:'favorite',
+    component:FavoriteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path:'**',
     component:NotFound404Component,
     canActivate: [AuthGuard]
@@ -63,6 +69,7 @@ const routes: Routes =[
     RegisterComponent,
     MovieDetailComponent,
     FooterComponent,
+    FavoriteComponent,
 
   ],
   imports: [

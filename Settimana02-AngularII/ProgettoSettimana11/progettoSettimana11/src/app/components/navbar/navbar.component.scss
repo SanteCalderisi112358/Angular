@@ -27,6 +27,21 @@
       color: #00050D;
     }
 
+    @keyframes spanAnimation {
+      0% {
+        transform: scale(1);
+        background-color: green;
+      }
+      50% {
+        transform: scale(1.15);
+        background-color: lightgreen;
+      }
+      100% {
+        transform: scale(1);
+        background-color: green;
+      }
+    }
+
     span {
       width: 15px;
       height: 15px;
@@ -34,7 +49,9 @@
       position: absolute;
       right: 0;
       bottom: 0;
+      animation: spanAnimation 2s infinite;
     }
+
 
     .dropdown-item:hover {
       color: #1A98FF
@@ -43,19 +60,16 @@
       left: -125px;
     }
   }
+  .dropdown-toggle::after{
+  color: #00050D;
+
+}
 }
 
 nav {
 background-color: #00050D;
-
-  a {
-    color: #00050D;
-
-
-  }
-
-  &:hover {
-    color: #1A98FF
-  }
-
 }
+.active{
+  color: #1A98FF!important
+}
+
