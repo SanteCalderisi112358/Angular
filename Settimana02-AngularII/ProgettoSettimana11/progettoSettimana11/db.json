@@ -20,6 +20,13 @@
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 3
+    },
+    {
+      "email": "laurazazzera@gmail.com",
+      "password": "$2a$10$LPF6EYTUFihTajlxCtyu3upmMiilVPmGlKPZxeakv4mS6cexVgnPu",
+      "nome": "Laura",
+      "cognome": "Zazzera",
+      "id": 4
     }
   ],
   "favorites": [
@@ -92,6 +99,16 @@
       "movieId": 586047,
       "userId": 1,
       "id": 20
+    },
+    {
+      "movieId": 578701,
+      "userId": 4,
+      "id": 21
+    },
+    {
+      "movieId": 578701,
+      "userId": 1,
+      "id": 22
     }
   ],
   "genres": [

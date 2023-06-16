@@ -1,30 +1,45 @@
 .card {
   max-width: 400px;
-
   margin: 0 auto;
 }
 
-.movie-details{
+.movie-details {
   height: 500px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: auto;
 }
 
-.text-detail{
+.text-detail {
   font-size: larger;
   font-weight: 500;
-  h2{
+
+  h2 {
     font-size: 40px;
     font-size: larger;
     font-weight: 500;
   }
 }
 
-a{
+a {
   text-decoration: none;
-  &:hover{
+
+  &:hover {
     color: black;
   }
+}
 
+.card-img-top {
+  position: relative;
+}
+
+.vote-average {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
 }

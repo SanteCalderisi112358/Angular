@@ -1,21 +1,25 @@
 <main>
   <section>
     <div class="container d-flex flex-wrap justify-content-center align-items-center">
- <div *ngFor="let favorite of listFavorite let i = index">
-      <div class="card rounded m-2" style="width: 200px; background-image: url('http://image.tmdb.org/t/p/w500{{ favorite.poster_path }}');">
-        <div class="card-body" >
-          <h3 class="card-title text-center">{{ favorite.title }}</h3>
-          <div class="d-flex justify-content-between">
+      <div *ngIf="listFavorite.length===0">
+        <h1>La tua lista preferiti è vuota</h1>
+      </div>
+      <div *ngFor="let favorite of listFavorite let i = index">
+        <div class="card rounded m-2"
+          style="width: 200px; background-image: url('http://image.tmdb.org/t/p/w500{{ favorite.poster_path }}');">
+          <div class="card-body">
+            <h3 class="card-title text-center">{{ favorite.title }}</h3>
+            <div class="d-flex justify-content-between">
 
-            <a class="btn btn-primary rounded-circle" [routerLink]="['/movie-detail', favorite.id]"
-              title="Dai un'occhiata ai dettagli">
-              <i class="bi bi-info-circle"></i>
-            </a>
+              <a class="btn btn-primary rounded-circle" [routerLink]="['/movie-detail', favorite.id]"
+                title="Dai un'occhiata ai dettagli">
+                <i class="bi bi-info-circle"></i>
+              </a>
+            </div>
+
           </div>
-
         </div>
       </div>
-    </div>
     </div>
 
   </section>
