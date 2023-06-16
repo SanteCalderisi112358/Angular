@@ -34,27 +34,7 @@ export class MovieDetailComponent implements OnInit {
         this.movie = movies.find(movie => movie.id === this.id);
         this.titleMovie = this.movie.title
         console.log(this.titleMovie)
-       this.http.get("https://imdb-api.com/en/API/Search/k_uu540viv/"+ this.titleMovie).subscribe((movieImdb=>{
-        try{
-          this.movieImdb = movieImdb
-        console.log(this.movieImdb.errorMessage)
-        }
-        catch(error){
-          console.log(error)
-        }
-        this.http.get("https://imdb-api.com/en/API/YouTubeTrailer/k_uu540viv/"+this.movieImdb.results[0].id).subscribe((movieImdbForYT)=>{
-          try{
-            this.trailerMovie =movieImdbForYT
-        this.trailerUrl = this.trailerMovie.videoUrl
-        console.log(this.trailerUrl)
-        this.trailer = this.sanitizerSrv.bypassSecurityTrustResourceUrl(this.trailerUrl);
-        console.log(this.trailer)
-          }
-        catch(error){
-          console.error(error)
-        }
-      })
-       }))
+
 
       });
     });

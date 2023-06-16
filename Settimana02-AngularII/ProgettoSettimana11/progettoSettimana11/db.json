@@ -1,89 +1,57 @@
 {
   "users": [
     {
-      "email": "santecalderisi@yahoo.it",
-      "password": "$2a$10$e4Lz6BVBnXCcCt.FhmmZuuqgQBQHd/GgxvHFlm45SCpk3BheKpr3a",
+      "email": "santecalderisi@gmail.com",
+      "password": "$2a$10$TieLsINX95o7hIQ4fFfwQeCRB9VHtFK0La0oP9bUna0JQnJ4a6PAa",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
     },
     {
-      "email": "antonio@giuliani.com",
-      "password": "$2a$10$bC3SqciPeo72d7Q/HIWV5eSj6MuOnBmWhiIPtqdPyp4IhtV.jYhyq",
-      "nome": "Antonio",
-      "cognome": "Giuliani",
+      "email": "dadegi@hotmail.it",
+      "password": "$2a$10$M8gQtifcG.YkgCZppjbOFuDpD/Kq86QPW/N4mV1YoWH46M5sXh9Yq",
+      "nome": "Dario",
+      "cognome": "Del Giudice",
       "id": 2
     },
     {
-      "email": "dadegi@hotmail.it",
-      "password": "$2a$10$aOCLvGB.0s2FFetqLEI90eN8aUtueOdaW5dhQhhjQob/wI4WDpKdC",
-      "nome": "Dario",
-      "cognome": "Del Giudice",
+      "email": "santecalderisi@yahoo.it",
+      "password": "$2a$10$24hmcZ3TwUtZtWcejdNbe.mFYf1Jx.HDa3seDu2kexunJFDXSkD3a",
+      "nome": "Sante",
+      "cognome": "Calderisi",
       "id": 3
-    },
-    {
-      "email": "andreagiuliani@gmail.com",
-      "password": "$2a$10$mnKrJ3qeew/qjas73FXEIu2lebAkf/kiQPrXkSa69wBIFZeLpypzi",
-      "nome": "Andrea",
-      "cognome": "Giuliani",
-      "id": 4
     }
   ],
   "favorites": [
     {
-      "movieId": 567189,
+      "movieId": 460465,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "movieId": 578701,
       "userId": 1,
       "id": 2
     },
     {
-      "movieId": 578701,
+      "movieId": 804435,
       "userId": 1,
       "id": 3
     },
     {
-      "movieId": 567189,
-      "userId": 2,
+      "movieId": 632357,
+      "userId": 3,
       "id": 4
     },
     {
-      "movieId": 632357,
-      "userId": 2,
-      "id": 5
-    },
-    {
       "movieId": 804435,
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "movieId": 460465,
-      "userId": 1,
-      "id": 7
+      "userId": 3,
+      "id": 5
     },
     {
       "movieId": 567189,
       "userId": 3,
-      "id": 8
-    },
-    {
-      "movieId": 632357,
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "movieId": 804435,
-      "userId": 3,
-      "id": 10
-    },
-    {
-      "movieId": 460465,
-      "userId": 4,
-      "id": 11
-    },
-    {
-      "movieId": 578701,
-      "userId": 4,
-      "id": 12
+      "id": 6
     }
   ],
   "genres": [
