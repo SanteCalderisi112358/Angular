@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/services/movies.service';
 import { HttpClient } from '@angular/common/http';
-
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 
@@ -23,7 +23,7 @@ export class MovieDetailComponent implements OnInit {
   movieYT!:any
   safeVideoUrl!:SafeResourceUrl
 
-  constructor(private route: ActivatedRoute, private movieSrv: MoviesService, private sanitizerSrv: DomSanitizer, private http:HttpClient) { }
+  constructor(private route: ActivatedRoute, private movieSrv: MoviesService, private sanitizerSrv: DomSanitizer, private http:HttpClient, private authService:AuthService) { }
 
   ngOnInit(): void {
 
@@ -39,8 +39,8 @@ export class MovieDetailComponent implements OnInit {
         this.movieSrv.getTrailerByTitle(this.titleMovie).subscribe(movie=>{
           this.movieYT = movie
           this.videoIdYT= this.movieYT.items[0].id.videoId
-         // console.log(this.movieYT)
-         // console.log(this.videoIdYT)
+          console.log(this.movieYT.items[0].snippet.thumbnails)
+          console.log(this.videoIdYT)
           this.safeVideoUrl = this.sanitizerSrv.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.videoIdYT);
 
 
@@ -49,6 +49,27 @@ export class MovieDetailComponent implements OnInit {
       });
     });
 
+  }
+
+  openModal(): void {
+    this.authService.restore();
+    const modal = document.getElementById('trailerModal');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+
+  }
+
+  closeModal(): void {
+    this.safeVideoUrl= ''
+    const modal = document.getElementById('trailerModal');
+    if (modal) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+
+
+    }
   }
 
 }

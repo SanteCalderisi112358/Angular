@@ -62,17 +62,6 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}register`, data);
   }
 
-  // favourite(favMovie: Favorites) {
-  //   return this.http.post(`${this.baseUrl}favorites`, favMovie);
-  // }
-  // getFavorites(userId: number): Observable<Favorites[]> {
-  //   return this.http.get<Favorites[]>(`${this.baseUrl}favorites?userId=${userId}`);
-  // }
-
-  // remove(id:number) {
-  //   return this.http.delete(`${this.baseUrl}favorites/${id}`);
-  // }
-
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');

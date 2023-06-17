@@ -33,6 +33,6 @@ export class MoviesService {
   }
 
   getTrailerByTitle(title:string){
-    return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${title}&key=AIzaSyAII5xaX8uQ5TEJ7kKHChfJ57PInKqm1fY`)
+    return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${title}&key=AIzaSyBWh5rxBfayqn-NMrBO74PCDZTXuIMWsD8`)
   }
 }
