@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center">
     <nav class="navbar navbar-expand-lg fixed-top mx-5 mt-3 rounded">
       <div class="container-fluid">
-        <a class="navbar-brand" id="logo" [routerLink]="['/movies']" routerLinkActive="active">epic video</a>
+        <a class="navbar-brand" id="logo" [routerLink]="['/']" routerLinkActive="active">epic video</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -10,21 +10,26 @@
         <div class="collapse navbar-collapse me-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-between align-items-center w-100">
             <div class="d-flex">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  style="color: aliceblue;">Home</a>
+              </li>
               <li class="nav-item" *ngIf="user">
-              <a class="nav-link" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active" style="color: aliceblue;">Movies</a>
-            </li>
-            <li class="nav-item" *ngIf="user">
-              <a class="nav-link" aria-current="page" [routerLink]="['/favorite']" routerLinkActive="active" style="color: aliceblue;">Preferiti</a>
-            </li>
+                <a class="nav-link" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active"
+                  style="color: aliceblue;">Movies</a>
+              </li>
+              <li class="nav-item" *ngIf="user">
+                <a class="nav-link" aria-current="page" [routerLink]="['/favorite']" routerLinkActive="active"
+                  style="color: aliceblue;">Preferiti</a>
+              </li>
             </div>
 
 
             <li class="nav-item" *ngIf="!user">
-              <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active"></a>
+              <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active" style="border: none;"></a>
             </li>
             <li class="nav-item" *ngIf="!user">
-              <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"></a>
+              <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active"
+                style="border: none;"></a>
             </li>
             <li class="nav-item" *ngIf="!user">
               <a class="nav-link" [routerLink]="['**']" routerLinkActive="active"></a>
@@ -35,8 +40,9 @@
                 Felice di riaverti a bordo, {{ user.user.nome }}
               </h3>
               <div class="dropdown rounded-circle">
-                <div class="rounded-circle d-flex justify-content-center align-items-center dropdown-toggle" id="user-div"
-                  type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-image:url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png)">
+                <div class="rounded-circle d-flex justify-content-center align-items-center dropdown-toggle"
+                  id="user-div" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                  style="background-image:url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png)">
                   <span class="rounded-circle ms-1"></span>
                   <p class="ms-1">
                     {{ user.user.nome[0].toUpperCase()

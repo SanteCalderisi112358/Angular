@@ -18,7 +18,7 @@ export class MovieDetailComponent implements OnInit {
   id!: number;
   movie!: any;
   titleMovie!: string
-  videoIdYT!:string
+  videoIdYT!:SafeResourceUrl
   trailer!:SafeResourceUrl
   movieYT!:any
   safeVideoUrl!:SafeResourceUrl
@@ -39,7 +39,7 @@ export class MovieDetailComponent implements OnInit {
         this.movieSrv.getTrailerByTitle(this.titleMovie).subscribe(movie=>{
           this.movieYT = movie
           this.videoIdYT= this.movieYT.items[0].id.videoId
-          console.log(this.movieYT.items[0].snippet.thumbnails)
+        //  console.log(this.movieYT.items[0].snippet.thumbnails)
           console.log(this.videoIdYT)
           this.safeVideoUrl = this.sanitizerSrv.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.videoIdYT);
 

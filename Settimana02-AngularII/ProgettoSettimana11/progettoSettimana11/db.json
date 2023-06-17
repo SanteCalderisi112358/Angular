@@ -2,64 +2,59 @@
   "users": [
     {
       "email": "santecalderisi@yahoo.it",
-      "password": "$2a$10$RsdtErPXSZbKwRIiTpx4u.NyG46cMdO7AsAjSR5GvSvciO0L6TGa.",
+      "password": "$2a$10$8yv8t7l/SsPbjC57ZKoOauosOQYZtldW.jdfMVjgb/nBmz3YdLTuW",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
     },
     {
-      "email": "nunzio@silvestri.it",
-      "password": "$2a$10$acwEY2EuWfr4tjlwEzkdx.ZhSFhIdEm0Djj4uMlLh/VBPDVb6By9W",
-      "nome": "Nunzio",
-      "cognome": "Silvestri",
+      "email": "dadegi@hotmail.it",
+      "password": "$2a$10$.prDQVyf.JsOi0TC6J40wer5.pV2CKw0p0pcYjErGwgXrTeafT2/q",
+      "nome": "Dario",
+      "cognome": "Del Giudice",
       "id": 2
     }
   ],
   "favorites": [
     {
       "movieId": 567189,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "movieId": 811367,
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "movieId": 632357,
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "movieId": 460465,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "movieId": 632357,
       "userId": 2,
-      "id": 8
-    },
-    {
-      "movieId": 804435,
-      "userId": 2,
-      "id": 9
+      "id": 1
     },
     {
       "movieId": 578701,
       "userId": 2,
-      "id": 10
+      "id": 2
     },
     {
-      "movieId": 567189,
+      "movieId": 573680,
       "userId": 2,
-      "id": 11
+      "id": 3
+    },
+    {
+      "movieId": 615457,
+      "userId": 2,
+      "id": 4
     },
     {
       "movieId": 399566,
       "userId": 2,
-      "id": 12
+      "id": 5
+    },
+    {
+      "movieId": 460465,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "movieId": 632357,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "movieId": 615457,
+      "userId": 1,
+      "id": 8
     }
   ],
   "genres": [

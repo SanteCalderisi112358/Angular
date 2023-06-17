@@ -1,7 +1,7 @@
 <main>
   <div class="container"></div>
   <h1 class="text-center">Benvenuto pirata del web!</h1>
-  <p class="text-center">Unisciti alla nostra ciurma o <a class="nav-link" style="text-decoration: underline;" [routerLink]="['/']" routerLinkActive="active">accedi</a> con le tue credenziali!</p>
+  <p class="text-center">Unisciti alla nostra ciurma o <a class="nav-link" style="text-decoration: underline;" [routerLink]="['/login']" routerLinkActive="active">accedi</a> con le tue credenziali!</p>
   <form #form="ngForm" (ngSubmit)="registra(form)">
     <div class="form-group">
       <label for="nome">Nome</label>

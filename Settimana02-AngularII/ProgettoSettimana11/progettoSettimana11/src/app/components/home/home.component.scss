@@ -1,0 +1,33 @@
+section {
+  background-image: url("https://wwwimage-intl.pplusstatic.com/thumbnails/photos/w1920-q80/cbs_page_attribute/ita_upsell_hero1_weblandscape_2560x960_022723.jpg");
+  //background-size: cover;
+  //background-position: center;
+  height: 100vh;
+//  margin: 0;
+h1{
+  padding-top: 100px;
+}
+h2{
+  margin-top: 0;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 22px;
+  line-height: .95;
+}
+h3{
+  font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    line-height: 1.375;
+}
+a{
+  color: white;
+  &:hover{
+    color:#0056b3
+  }
+}
+}
+

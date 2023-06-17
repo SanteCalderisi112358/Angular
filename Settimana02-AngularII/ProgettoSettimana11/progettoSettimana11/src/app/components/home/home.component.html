@@ -1,0 +1,36 @@
+<section id="noUser" *ngIf="!user">
+  <div class="container">
+    <h1>Benvenuto e ben approdato, pirata del web!</h1>
+    <h2>TROVA SEMPRE IL CONTENUTO CHE FA PER TE </h2>
+    <h3>Prime visioni esclusive, film di successo, contenuti originali, serie tv e il  meglio dell'animazione per i più piccoli.​</h3>
+    <div class="d-flex flex-column text-center mt-5">
+      <div>
+        <p>Cosa stai aspettando?</p>
+      </div>
+      <div>
+        <p>Entra a far parte della ciurma <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active"
+      style="text-decoration: underline">cliccando qui</a></p>
+      </div>
+    <div>
+      <p>oppure</p>
+    </div>
+    <div>
+         <p><a class="nav-link" style="text-decoration: underline;" [routerLink]="['/login']" routerLinkActive="active">accedi</a> con le tue credenziali</p>
+
+    </div>
+    </div>
+
+  </div>
+
+
+
+
+
+</section>
+<section *ngIf="user">
+  <div class="container">
+    <a [routerLink]="['/movies']" routerLinkActive="active"><h1>Goditi il meglio dei film che abbiamo da offrirti</h1></a>
+
+  </div>
+
+</section>

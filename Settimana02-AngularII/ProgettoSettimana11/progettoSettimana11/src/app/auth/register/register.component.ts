@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     try {
       this.authSrv.signup(form.value).subscribe(
         () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
           this.isLoading = false;
         },
         (error) => {

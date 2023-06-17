@@ -17,12 +17,19 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { FooterComponent } from './components/footer/footer.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes =[
   {
     path: '',
-    component: LoginComponent
+    component: HomeComponent,
+
+  },
+  {
+    path:'login',
+    component:LoginComponent,
+
   },
   {
     path: 'movies',
@@ -36,7 +43,8 @@ const routes: Routes =[
   },
   {
     path:'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+
   },
 
   {
@@ -52,7 +60,7 @@ const routes: Routes =[
   {
     path:'**',
     component:NotFound404Component,
-    canActivate: [AuthGuard]
+  //  canActivate: [AuthGuard]
   }
 
 
@@ -70,6 +78,7 @@ const routes: Routes =[
     MovieDetailComponent,
     FooterComponent,
     FavoriteComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -82,10 +91,13 @@ const routes: Routes =[
 
   ],
   providers: [
-    // provide: HTTP_INTERCEPTORS,
-    // useClass: TokenInterceptor,
-    // multi:true
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // }
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
