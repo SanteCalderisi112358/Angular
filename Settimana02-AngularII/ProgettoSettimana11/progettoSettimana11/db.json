@@ -1,114 +1,28 @@
 {
   "users": [
     {
-      "email": "santecalderisi@gmail.com",
-      "password": "$2a$10$TieLsINX95o7hIQ4fFfwQeCRB9VHtFK0La0oP9bUna0JQnJ4a6PAa",
+      "email": "santecalderisi@yahoo.it",
+      "password": "$2a$10$RsdtErPXSZbKwRIiTpx4u.NyG46cMdO7AsAjSR5GvSvciO0L6TGa.",
       "nome": "Sante",
       "cognome": "Calderisi",
       "id": 1
-    },
-    {
-      "email": "dadegi@hotmail.it",
-      "password": "$2a$10$M8gQtifcG.YkgCZppjbOFuDpD/Kq86QPW/N4mV1YoWH46M5sXh9Yq",
-      "nome": "Dario",
-      "cognome": "Del Giudice",
-      "id": 2
-    },
-    {
-      "email": "santecalderisi@yahoo.it",
-      "password": "$2a$10$24hmcZ3TwUtZtWcejdNbe.mFYf1Jx.HDa3seDu2kexunJFDXSkD3a",
-      "nome": "Sante",
-      "cognome": "Calderisi",
-      "id": 3
-    },
-    {
-      "email": "laurazazzera@gmail.com",
-      "password": "$2a$10$LPF6EYTUFihTajlxCtyu3upmMiilVPmGlKPZxeakv4mS6cexVgnPu",
-      "nome": "Laura",
-      "cognome": "Zazzera",
-      "id": 4
     }
   ],
   "favorites": [
     {
-      "movieId": 632357,
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "movieId": 804435,
-      "userId": 3,
-      "id": 5
+      "movieId": 578701,
+      "userId": 1,
+      "id": 1
     },
     {
       "movieId": 567189,
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "movieId": 567189,
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "movieId": 578701,
-      "userId": 2,
-      "id": 8
-    },
-    {
-      "movieId": 632357,
-      "userId": 2,
-      "id": 9
-    },
-    {
-      "movieId": 460465,
-      "userId": 2,
-      "id": 10
-    },
-    {
-      "movieId": 573680,
-      "userId": 2,
-      "id": 11
-    },
-    {
-      "movieId": 717192,
       "userId": 1,
-      "id": 15
+      "id": 2
     },
     {
-      "movieId": 808023,
+      "movieId": 811367,
       "userId": 1,
-      "id": 16
-    },
-    {
-      "movieId": 573680,
-      "userId": 1,
-      "id": 17
-    },
-    {
-      "movieId": 635302,
-      "userId": 1,
-      "id": 18
-    },
-    {
-      "movieId": 527774,
-      "userId": 1,
-      "id": 19
-    },
-    {
-      "movieId": 586047,
-      "userId": 1,
-      "id": 20
-    },
-    {
-      "movieId": 578701,
-      "userId": 4,
-      "id": 21
-    },
-    {
-      "movieId": 578701,
-      "userId": 1,
-      "id": 22
+      "id": 3
     }
   ],
   "genres": [

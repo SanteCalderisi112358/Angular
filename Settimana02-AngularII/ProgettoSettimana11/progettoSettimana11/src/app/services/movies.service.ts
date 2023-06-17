@@ -31,4 +31,8 @@ export class MoviesService {
   addFavouriteToFavorites(favMovie: Favorites) {
     return this.http.post<Favorites[]>(`${this.baseUrl}favorites`, favMovie);
   }
+
+  getTrailerByTitle(title:string){
+    return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${title}&key=AIzaSyAII5xaX8uQ5TEJ7kKHChfJ57PInKqm1fY`)
+  }
 }

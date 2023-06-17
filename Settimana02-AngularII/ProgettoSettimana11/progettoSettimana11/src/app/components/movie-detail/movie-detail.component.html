@@ -1,5 +1,6 @@
 <main>
-  <div class="card text-center">
+  <section class="d-flex container">
+    <div class="card text-center">
     <img class="card-img-top" [src]="'http://image.tmdb.org/t/p/w500' + movie?.poster_path" [alt]="movie?.title" />
     <div class="card-body">
       <h2 class="card-title">{{ movie?.title }}</h2>
@@ -9,5 +10,11 @@
       </div>
     </div>
     <div class="vote-average">{{ movie?.vote_average }}</div>
+
+
+
   </div>
+   <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="safeVideoUrl" frameborder="0"></iframe>
+  </section>
+
 </main>

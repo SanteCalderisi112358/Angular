@@ -19,7 +19,7 @@ export class FavoriteComponent implements OnInit, OnDestroy {
   subFavorites!: Subscription;
   movies!: Movie[];
   favorites!: Favorites[];
-
+  removed!:boolean
 
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 
@@ -34,7 +34,7 @@ export class FavoriteComponent implements OnInit, OnDestroy {
         this.subFavorites = this.movieSrv.getFavoritesByUserId(this.user.id).subscribe((favorites: Favorites[]) => {
           this.favorites = favorites;
           this.updateFavoriteMovies();
-
+          console.log(this.favorites)
         });
       }
     });
@@ -42,10 +42,24 @@ export class FavoriteComponent implements OnInit, OnDestroy {
   updateFavoriteMovies(): void {
     this.listFavorite = this.favorites.map((favorite) => {
       const movie = this.movies.find((m) => m.id === favorite.movieId);
-      return movie ? movie : null;
+      return movie;
     }).filter((movie) => movie !== null) as Movie[];
   }
 
+
+
+  removeFromlistFavorite(movieId: number): void {
+    const favoriteToRemove = this.favorites.find((favorite) => favorite.movieId === movieId);
+    if(favoriteToRemove?.id){
+    this.movieSrv.removeFavoriteFromFavorites(favoriteToRemove?.id).subscribe();
+    }
+
+
+    this.toggleCardVisibility(movieId)
+  }
+  toggleCardVisibility(index: number): void {
+    this.listFavorite[index].hidden = !this.listFavorite[index].hidden;
+  }
   ngOnDestroy(): void {
     this.subMovies.unsubscribe();
     this.subFavorites.unsubscribe();
