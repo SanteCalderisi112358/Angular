@@ -23,6 +23,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   favorites!: Favorites[];
   searching:boolean = false
   searchInput!: string;
+  showSearchInput: boolean = false;
 
   constructor(private movieSrv: MoviesService, private authSrv: AuthService) { }
 

@@ -9,8 +9,8 @@
 
     </div>
     <form class="input-search">
-      <input type="text" name="search" id="search" [(ngModel)]="searchInput">
-      <a type="submit" (click)="searchByTitle()"><i class="bi bi-search"></i></a>
+      <input type="text" name="search" id="search" [(ngModel)]="searchInput" *ngIf="showSearchInput">
+      <a type="submit" (click)="searchByTitle()" (mouseenter)="showSearchInput = true"><i class="bi bi-search"></i></a>
     </form>
 
   </div>

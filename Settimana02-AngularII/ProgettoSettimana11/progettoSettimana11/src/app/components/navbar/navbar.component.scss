@@ -4,6 +4,7 @@
   font-weight: bold;
   color: #1A98FF;
   letter-spacing: 2px;
+  border:none
 
 }
 
@@ -19,7 +20,6 @@
     height: 40px;
     background-color: white;
     position: relative;
-
     p {
       margin: 0;
       font-weight: 900;
@@ -70,6 +70,7 @@ nav {
 background-color: #00050D;
 }
 .active{
-  color: #1A98FF!important
+  color: #1A98FF!important;
+  border-bottom: 1px solid #1A98FF;
 }
 
